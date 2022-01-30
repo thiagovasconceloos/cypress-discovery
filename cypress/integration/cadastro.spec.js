@@ -31,7 +31,8 @@ describe('Cadastro',()=>{
 
 
        },
-       metodo_entrega : 'Moto'
+       metodo_entrega : 'Moto',
+       cnh:'images/cnh-digital.jpg'
 
 
      }
@@ -65,7 +66,19 @@ describe('Cadastro',()=>{
     //usamos o contains por se tratar de uma lista não temos propriedades
     // acessiveis, sendo assim estamos buscando o valor que existe em cada li
     cy.contains('.delivery-method li',entregador.metodo_entrega).click();
+    // expressões regulares basicas:
+    // ^ buscar prefixo 
+    // $ buscar sufixo
+    // * buscar geral
+    // upload do arquivo que esta na subpasta images dentro de fixtures
+    cy.get('input[accept^="image"]').attachFile(entregador.cnh)
+    // clica no bottão submit para finalizar o cadastro
+    cy.get('form button[type="submit"]').click()
+    const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
 
+    // valida se o cadastro foi concluido.
+    cy.get('.swal2-container .swal2-html-container')
+    .should('have.text',expectedMessage)
 
    })
 
