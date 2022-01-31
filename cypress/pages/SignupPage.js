@@ -6,7 +6,7 @@ class SignupPage {
     // função viewport redimensiona a pagina para um tamanho padrão
     cy.viewport(1440,900)
     // funcao visit, como o nome sugere visita a pagina mencionada
-    cy.visit('https://buger-eats.vercel.app/')
+    cy.visit('https://buger-eats-qa.vercel.app')
     // funcao get localiza a rota e clica 
     cy.get('a[href="/deliver"]').click();
     // checkpoint para saber se estamos no lugar certo
@@ -19,7 +19,7 @@ class SignupPage {
  fillForm(deliver){
 
       // input nome a partir do objeto 
-      cy.get('input[name="name"]').type(deliver.name)
+      cy.get('input[name="fullName"]').type(deliver.name)
     // input cpf a partir do objeto
     cy.get('input[name="cpf"]').type(deliver.cpf)
     // input email a partir do objeto
@@ -85,4 +85,4 @@ class SignupPage {
 
 } 
 
- export default SignupPage
+ export default new SignupPage;
