@@ -1,13 +1,20 @@
+const faker = require('faker')
+const cpf = require('gerador-validador-cpf')
+// biblioteca gera dados dinamicos para serem utlizados
+
 export default {
 
 
  deliver:function(){
-   var data={
 
- 
-    name: 'Thiago Vasconcelos',
-    cpf: '00000014141',
-    email: 'thiago@email.com',
+  const firstName = faker.name.firstName()
+  const lastName = faker.name.lastName()
+
+  const data={
+
+    name: `${firstName} ${lastName}`,
+    cpf: cpf.generate(),
+    email: faker.internet.email(firstName),
     whatsapp: '11999999999',
     address: {
         postalcode: '04534011',
