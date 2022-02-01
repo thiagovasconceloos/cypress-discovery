@@ -12,7 +12,7 @@ describe('Signup', () => {
 
     // })
 
-    it.skip('User should be deliver', function () {
+    it('User should be deliver', function () {
 
         var deliver = signupFactory.deliver()
 
@@ -24,7 +24,7 @@ describe('Signup', () => {
         signup.modalContentShouldBe(expectedMessage)
     })
 
-    it.skip('Incorrect document', function () {
+    it('Incorrect document', function () {
         var deliver = signupFactory.deliver()
 
         deliver.cpf = '000000141AA'
@@ -36,7 +36,7 @@ describe('Signup', () => {
     })
 
 
-    it.skip('Incorrect email', function () {
+    it('Incorrect email', function () {
 
         var deliver = signupFactory.deliver()
         deliver.email = 'thiago.email.com'
