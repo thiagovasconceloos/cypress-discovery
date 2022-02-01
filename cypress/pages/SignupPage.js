@@ -79,7 +79,10 @@ class SignupPage {
   alertMessageShouldBe(expectedMessage) {
 
     // valida se teve algum erro
-    cy.get('.alert-error').should('have.text', expectedMessage)
+    //cy.get('.alert-error').should('have.text', expectedMessage)
+
+    //valida se existe o localizador e o texto
+    cy.contains('.alert-error',expectedMessage).should('be.visible')
 }
 
 
